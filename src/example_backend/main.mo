@@ -1,20 +1,23 @@
+
 import Array "mo:base/Array";
 
 actor {
-  stable var students : [Student] = [];
+  stable var departmentss : [Department] = [];
 
-  public type Student = {
-    firstName : Text;
-    lastName : Text;
-    school : Text;
+  public type Department = {
+    depId : Text;
+    depName : Text;
   };
 
-  public query func getStudents() : async [Student] {
-    return students;
+ 
+
+  public query func getDepartments() : async [Department] {
+    return departmentss;
   };
 
-  public func addStudent(firstName : Text, lastName : Text, school : Text) : async () {
-    let newStudent : [Student] = [{ firstName; lastName; school }];
-    students := Array.append(students, newStudent);
+  public func addDepartment(depId : Text, depName : Text) : async () {
+    let depart : [Department] = [{ depId; depName }];
+      departmentss := Array.append(departmentss, depart);
   };
+
 };
